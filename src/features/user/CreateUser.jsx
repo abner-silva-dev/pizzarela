@@ -23,7 +23,7 @@ function CreateUser() {
         Welcome! Please start by telling us your name:
       </p>
 
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-4 max-sm:flex-col">
         <input
           type="text"
           placeholder="Your full name"

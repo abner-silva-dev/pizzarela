@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  Form,
-  redirect,
-  useActionData,
-  useNavigation,
-} from "react-router-dom";
+import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 
 import { formatCurrency } from "./../../utils/helpers";
 
@@ -52,7 +47,7 @@ function CreateOrder() {
 
   return (
     <div
-      className="bg-cover bg-[50%_90%] px-4 py-10 text-stone-50 md:bg-[50%_75%] md:px-7"
+      className="h-full bg-cover bg-[50%_90%] px-4 py-10 text-stone-50 md:bg-[50%_75%] md:px-7"
       style={{
         backgroundImage: `${
           screenWidth <= 768
@@ -114,7 +109,7 @@ function CreateOrder() {
             )}
 
             {!position.latitude && !position.longitude && (
-              <span className="absolute right-[-1px] top-[0] z-50 max-md:top-[28%]">
+              <span className="absolute right-[-1px] top-[0] z-50 max-md:top-[-7%] max-sm:top-[45%]">
                 <Button
                   onClick={(e) => {
                     e.preventDefault();
