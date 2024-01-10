@@ -10,7 +10,7 @@ import {
 import OrderItem from "./OrderItem.jsx";
 import UpdateOrder from "./updateOrder.jsx";
 
-import { getOrder, updateOrder } from "./../../services/apiRestaurant.js";
+import { getOrder } from "./../../services/apiRestaurant.js";
 import { useEffect } from "react";
 
 function Order() {
@@ -37,7 +37,7 @@ function Order() {
   return (
     <div className="mt-7 space-y-8 px-4 py-3 sm:px-10">
       <div className="flex flex-wrap items-center justify-between gap-2 font-semibold">
-        <h2 className=" text-3xl font-bold">Order #{id} status</h2>
+        <h2 className="text-lg font-bold md:text-3xl">Order #{id} status</h2>
 
         <div className="space-x-2">
           {priority && (
