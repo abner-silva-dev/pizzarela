@@ -12,7 +12,7 @@ function Home() {
 
   return (
     <div
-      className={`grid h-screen w-full grid-cols-[2fr_1.5fr] items-center gap-16 p-7  text-red-200 max-md:grid-cols-1 max-md:bg-[url('/pizza-1.jpg')] max-md:bg-cover`}
+      className={`grid w-full grid-cols-[2fr_1.5fr] items-center gap-16 p-7  text-red-200 max-md:grid-cols-1 max-md:bg-[url('/pizza-1.jpg')] max-md:bg-cover`}
       style={{
         background:
           "linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/pizza-1.jpg)",
