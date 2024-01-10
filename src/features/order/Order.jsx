@@ -8,7 +8,7 @@ import {
 } from "../../utils/helpers";
 
 import OrderItem from "./OrderItem.jsx";
-import UpdateOrder from "./updateOrder.jsx";
+import UpdateOrder from "./UpdateOrder.jsx";
 
 import { getOrder } from "./../../services/apiRestaurant.js";
 import { useEffect } from "react";
