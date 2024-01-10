@@ -11,10 +11,10 @@ function AppLayout() {
   const isEmpty = useSelector(getCart).length === 0;
 
   return (
-    <div className="flex flex-col">
+    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
       <Header />
-      <main className={`${!isEmpty ? "mb-12" : ""}`}>
+      <main className={`${!isEmpty ? "pb-12" : ""}`}>
         <Outlet />
       </main>
       <CartOverview />

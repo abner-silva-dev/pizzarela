@@ -3,8 +3,7 @@ import { useScreen } from "../hooks/useScreen";
 import CreateUser from "./../features/user/CreateUser";
 import Galery from "./Galery";
 import Button from "./Button";
-
-// grid-cols-[2fr_3fr]
+import { useEffect } from "react";
 
 function Home() {
   const { userName } = useSelector((state) => state.user);
@@ -12,7 +11,7 @@ function Home() {
 
   return (
     <div
-      className={`grid w-full grid-cols-[2fr_1.5fr] items-center gap-16 p-7  text-red-200 max-md:grid-cols-1 max-md:bg-[url('/pizza-1.jpg')] max-md:bg-cover`}
+      className={`grid w-full grid-cols-[2fr_1.5fr] items-center gap-16 p-7 text-red-200 max-md:h-full max-md:grid-cols-1 max-md:bg-[url('/pizza-1.jpg')] max-md:bg-cover`}
       style={{
         background:
           "linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/pizza-1.jpg)",
@@ -20,7 +19,7 @@ function Home() {
         backgroundPosition: "center",
       }}
     >
-      <div className="max-sm:h flex h-full flex-col items-center gap-20 text-center">
+      <div className="flex h-full flex-col items-center gap-20 text-center">
         <h1 className="tracking-wides mt-14 self-start	text-2xl  font-bold text-red-100	max-md:text-4xl md:text-6xl">
           <span className="max-md:text-md text-2xl font-semibold uppercase tracking-widest text-red-500">
             The best pizza.
