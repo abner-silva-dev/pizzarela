@@ -16,7 +16,7 @@ function CartOverview() {
         <span>{formatCurrency(totalPrice)}</span>
       </p>
       <Link to="/cart" className="text-red-50">
-        Open cart &rarr;
+        Ver carrito &rarr;
       </Link>
     </footer>
   );

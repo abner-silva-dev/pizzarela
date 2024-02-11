@@ -21,17 +21,17 @@ function Cart() {
 
   return (
     <div className="px-4 py-3 sm:px-10">
-      <LinkButton to="/menu">&larr; Back to menu</LinkButton>
-      <h2 className="mt-7 text-xl font-semibold">Your cart, {userName}</h2>
+      <LinkButton to="/menu">&larr; Volver al Menú</LinkButton>
+      <h2 className="mt-7 text-xl font-semibold">Tu carrito, {userName}</h2>
       <ul className="mt-3 divide-y divide-stone-200 border-b">
         {cart.map((item) => (
           <CartItem item={item} key={item.pizzaId} />
         ))}
       </ul>
       <div className="mt-6 space-x-2">
-        <Button to="/order/new">Order pizzas</Button>
+        <Button to="/order/new">Pedir pizzas</Button>
         <Button type="secondary" onClick={handleClear}>
-          Clear cart
+          Vaciar carrito
         </Button>
       </div>
     </div>

@@ -22,15 +22,15 @@ function Home() {
       <div className="flex h-full flex-col items-center gap-20 text-center">
         <h1 className="tracking-wides mt-14 self-start	text-2xl  font-bold text-red-100	max-md:text-4xl md:text-6xl">
           <span className="max-md:text-md text-2xl font-semibold uppercase tracking-widest text-red-500">
-            The best pizza.
+            La mejor pizza.
           </span>
           <br />
-          <span className="">Straight out of the oven, straight to you.</span>
+          <span className="">Recién salido del horno, directo a ti.</span>
         </h1>
 
         {userName ? (
           <Button to="/menu" type="primary">
-            Continue ordering {userName}
+            Continuar Ordenando {userName}
           </Button>
         ) : (
           <CreateUser />

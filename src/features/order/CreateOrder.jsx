@@ -57,12 +57,12 @@ function CreateOrder() {
       }}
     >
       <h2 className="mb-10 text-xl font-bold md:mb-16 md:text-3xl">
-        Ready to order? Let&apos;s go!
+        ¿Listo para ordenar? ¡Vamos!
       </h2>
 
       <Form method="POST" className="text-lg md:text-xl">
         <div className="mb-7 flex flex-col gap-2  sm:flex-row sm:items-center  md:mb-10 md:w-[61%]">
-          <label className="sm:basis-40">First Name</label>
+          <label className="sm:basis-40">Nombre</label>
           <div className="grow">
             <input
               className="input w-full text-stone-900"
@@ -75,7 +75,7 @@ function CreateOrder() {
         </div>
 
         <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-center md:mb-10 md:w-[59%]">
-          <label className="sm:basis-40">Phone number</label>
+          <label className="sm:basis-40">Número de Teléfono</label>
           <div className="grow">
             <input
               className="input w-full text-stone-900"
@@ -92,7 +92,7 @@ function CreateOrder() {
         </div>
 
         <div className="relative mb-10 flex flex-col gap-2 sm:flex-row sm:items-center md:mb-10 md:w-[57%]">
-          <label className="sm:basis-40">Address</label>
+          <label className="sm:basis-40">Dirección</label>
           <div className="grow text-lg">
             <input
               className="input w-full text-stone-900"
@@ -117,7 +117,7 @@ function CreateOrder() {
                   }}
                   disabled={isLoadingAddress}
                 >
-                  Get position
+                  Conseguir posición
                 </Button>
               </span>
             )}
@@ -133,7 +133,7 @@ function CreateOrder() {
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label htmlFor="priority">¿Quieres darle prioridad a tu pedido?</label>
         </div>
 
         <div>
@@ -150,7 +150,7 @@ function CreateOrder() {
           <Button disabled={isSubmitting || isLoadingAddress}>
             {isSubmitting
               ? "Placing order..."
-              : `Order now for ${formatCurrency(totalPrice)}`}
+              : `Ordene ahora por ${formatCurrency(totalPrice)}`}
           </Button>
         </div>
       </Form>
@@ -172,7 +172,7 @@ export async function action({ request }) {
 
   if (!isValidPhone(order.phone))
     errors.phone =
-      "Please give us your correct phone number. We might need it to contact you.";
+      "Por favor danos tu número de teléfono correcto. Es posible que lo necesitemos para comunicarnos con usted.";
 
   if (Object.keys(errors).length > 0) return errors;
 

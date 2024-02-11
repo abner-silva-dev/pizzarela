@@ -3,10 +3,10 @@ import LinkButton from "../../ui/LinkButton";
 function EmptyCart() {
   return (
     <div className="px-4 py-3">
-      <LinkButton to="/menu">&larr; Back to menu</LinkButton>
+      <LinkButton to="/menu">&larr; Volver al Menú</LinkButton>
 
       <p className="font-semibold">
-        Your cart is still empty. Start adding some pizzas :)
+      Tu carro sigue vacío. Empieza a agregar algunas pizzas. :)
       </p>
     </div>
   );

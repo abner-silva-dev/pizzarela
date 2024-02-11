@@ -8,9 +8,9 @@ function Error() {
 
   return (
     <div>
-      <h1>Something went wrong 😢</h1>
+      <h1>Algo salió mal 😢</h1>
       <p>{error.data || error.message}</p>
-      <LinkButton to="-1">&larr; Go back</LinkButton>
+      <LinkButton to="-1">&larr; Regresa</LinkButton>
     </div>
   );
 }

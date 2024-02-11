@@ -54,7 +54,7 @@ function MenuItem({ pizza }) {
             </p>
           </div>
           <div className="mt-2 w-full flex-none text-xs font-normal uppercase italic text-slate-700">
-            {soldOut ? "Sold out" : "available"}
+            {soldOut ? "Agotado" : "Disponible"}
           </div>
         </div>
         <div className="mb-6 mt-4 flex items-baseline border-b border-slate-200 pb-6">
@@ -82,7 +82,7 @@ function MenuItem({ pizza }) {
           <div className="flex flex-auto  justify-between max-md:flex-col max-md:gap-4">
             {!isInCart && !soldOut && (
               <Button type="small" disabled={soldOut} onClick={handleAddToCart}>
-                Add to cart
+                Añadir al Carrito
               </Button>
             )}
 
