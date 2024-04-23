@@ -22,12 +22,11 @@ function Home() {
       <div className="flex h-full flex-col items-center gap-20 text-center">
         <h1 className="tracking-wides mt-14 self-start	text-2xl  font-bold text-red-100	max-md:text-4xl md:text-6xl">
           <span className="max-md:text-md text-2xl font-semibold uppercase tracking-widest text-red-500">
-            La mejor pizza.
+            LA MEJOR PIZZA.
           </span>
-          <br />
+          <br/>
           <span className="">Recién salido del horno, directo a ti.</span>
         </h1>
-
         {userName ? (
           <Button to="/menu" type="primary">
             Continuar Ordenando {userName}
@@ -35,12 +34,13 @@ function Home() {
         ) : (
           <CreateUser />
         )}
+      <p className=" text-justify text-red-300 max-md:text-md text-2xl" >En<b> PIZZARELA, </b>combinamos años de experiencia en la preparación artesanal de pizzas con un toque de innovación, ofreciendo a nuestros clientes una experiencia gastronómica única.
+      Nos enorgullece utilizar ingredientes frescos y de la más alta calidad en cada una de nuestras creaciones, y nuestro equipo está comprometido con brindar un servicio excepcional y una atención personalizada a cada cliente.</p> 
+      <p className="max-md:text-md text-2xl font-semibold uppercase tracking-widest text-red-500"> ¡Tu orden en solo 45 minutos!</p>
       </div>
       {screenWidth >= 768 && <Galery />}
     </div>
   );
 }
-
 export default Home;
-
 // <Galery />;

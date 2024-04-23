@@ -133,7 +133,7 @@ function CreateOrder() {
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">¿Quieres darle prioridad a tu pedido?</label>
+          <label htmlFor="priority">¿Quieres darle prioridad a tu pedido?</label> <p> El costo de la prioridad seria de: {formatCurrency(priorityPrice)}</p>
         </div>
 
         <div>
