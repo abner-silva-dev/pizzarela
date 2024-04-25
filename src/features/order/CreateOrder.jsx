@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
+import { Form, useActionData, useNavigation } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 
 import { formatCurrency } from "./../../utils/helpers";
@@ -7,13 +7,12 @@ import { formatCurrency } from "./../../utils/helpers";
 import { checkoutSession, createOrder } from "../../services/apiRestaurant";
 import { useScreen } from "./../../hooks/useScreen";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, getCart, getTotalCartPrice } from "./../cart/cartSlice";
+import { getCart, getTotalCartPrice } from "./../cart/cartSlice";
 
 import Button from "../../ui/Button";
 import EmptyCart from "./../cart/EmptyCart";
-import store from "./../../store";
+// import store from "./../../store";
 import { fetchAddress } from "../user/userSlice";
-import Stripe from "stripe";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -142,13 +141,15 @@ function CreateOrder() {
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-<<<<<<< HEAD
-          <label htmlFor="priority">¿Quieres darle prioridad a tu pedido?</label> <p> El costo de la prioridad seria de: {formatCurrency(priorityPrice)}</p>
-=======
+          <label htmlFor="priority">
+            ¿Quieres darle prioridad a tu pedido?
+          </label>{" "}
+          <p>
+            El costo de la prioridad seria de: {formatCurrency(priorityPrice)}
+          </p>
           <label htmlFor="priority">
             ¿Quieres darle prioridad a tu pedido?
           </label>
->>>>>>> developer
         </div>
 
         <div>
@@ -200,13 +201,13 @@ export async function action({ request }) {
   const session = await checkoutSession(newOrder);
 
   const stripe = await stripePromise;
-  const { error } = await stripe.redirectToCheckout({
+  const { errorStripe } = await stripe.redirectToCheckout({
     sessionId: session.id,
   });
 
-  // store.dispatch(clearCart());
+  if (errorStripe) console.error("fail redirect", errorStripe);
+
   return null;
-  // return redirect(`/order/${newOrder.id}`);
 }
 
 export default CreateOrder;
