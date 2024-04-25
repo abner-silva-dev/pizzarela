@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
 
 import { formatCurrency } from "./../../utils/helpers";
 
-import { createOrder } from "../../services/apiRestaurant";
+import { checkoutSession, createOrder } from "../../services/apiRestaurant";
 import { useScreen } from "./../../hooks/useScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart, getTotalCartPrice } from "./../cart/cartSlice";
@@ -12,12 +13,20 @@ import Button from "../../ui/Button";
 import EmptyCart from "./../cart/EmptyCart";
 import store from "./../../store";
 import { fetchAddress } from "../user/userSlice";
+import Stripe from "stripe";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
     str,
   );
+
+// const stripe = Stripe(
+//   "pk_test_51OhNsOKZEUzmA21hILCYtkf3JyVFuYLG5cGpG6xDWFh9oAlgOSjLL2321gshsBNhtKLdlUtAVxWPuSQCSmoveuGR00NjMg5kR6",
+// );
+const stripePromise = loadStripe(
+  "pk_test_51OhNsOKZEUzmA21hILCYtkf3JyVFuYLG5cGpG6xDWFh9oAlgOSjLL2321gshsBNhtKLdlUtAVxWPuSQCSmoveuGR00NjMg5kR6",
+);
 
 function CreateOrder() {
   const dispatch = useDispatch();
@@ -133,7 +142,9 @@ function CreateOrder() {
             value={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">¿Quieres darle prioridad a tu pedido?</label>
+          <label htmlFor="priority">
+            ¿Quieres darle prioridad a tu pedido?
+          </label>
         </div>
 
         <div>
@@ -147,6 +158,7 @@ function CreateOrder() {
                 : ""
             }
           />
+
           <Button disabled={isSubmitting || isLoadingAddress}>
             {isSubmitting
               ? "Placing order..."
@@ -162,6 +174,9 @@ export async function action({ request }) {
   const formDate = await request.formData();
   const data = Object.fromEntries(formDate);
 
+  const pizzasIds = JSON.parse(data.cart)?.map((pizza) => pizza.pizzaId);
+
+  console.log(pizzasIds);
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
@@ -178,10 +193,16 @@ export async function action({ request }) {
 
   // If everything is okay, create new order and redirect
   const newOrder = await createOrder(order);
+  const session = await checkoutSession(newOrder);
 
-  store.dispatch(clearCart());
+  const stripe = await stripePromise;
+  const { error } = await stripe.redirectToCheckout({
+    sessionId: session.id,
+  });
 
-  return redirect(`/order/${newOrder.id}`);
+  // store.dispatch(clearCart());
+  return null;
+  // return redirect(`/order/${newOrder.id}`);
 }
 
 export default CreateOrder;
