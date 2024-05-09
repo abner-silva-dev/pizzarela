@@ -63,6 +63,7 @@ export async function loader() {
     return numVisits || null;
   } catch (error) {
     console.log(error);
+    return null;
   }
 }
 
