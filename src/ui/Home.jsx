@@ -60,6 +60,7 @@ function Home() {
 export async function loader() {
   try {
     const numVisits = await getVisits();
+    console.log(numVisits);
     return numVisits || null;
   } catch (error) {
     console.log(error);

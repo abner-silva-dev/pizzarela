@@ -1,6 +1,6 @@
 const API_URL = "https://react-fast-pizza-api.onrender.com/api";
-// const API_URL_PIZZARELA = "https://pizzarela-api.vercel.app/api/v1";
-const API_URL_PIZZARELA = "http://localhost:3000/api/v1";
+const API_URL_PIZZARELA = "https://pizzarela-api.vercel.app/api/v1";
+// const API_URL_PIZZARELA = "http://localhost:3000/api/v1";
 
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menu`);
@@ -91,6 +91,7 @@ export async function getVisits() {
     const { numVisits } = await res.json();
     return numVisits;
   } catch (err) {
+    console.log(err);
     throw Error(err.message);
   }
 }
