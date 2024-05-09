@@ -15,5 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 (async () => {
-  await setVisits();
+  try {
+    await setVisits();
+  } catch (error) {
+    console.log(error);
+  }
 })();

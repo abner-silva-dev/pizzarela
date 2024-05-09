@@ -58,8 +58,12 @@ function Home() {
 }
 
 export async function loader() {
-  const numVisits = await getVisits();
-  return numVisits;
+  try {
+    const numVisits = await getVisits();
+    return numVisits;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export default Home;
