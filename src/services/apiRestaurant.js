@@ -1,6 +1,6 @@
 const API_URL = "https://react-fast-pizza-api.onrender.com/api";
-const API_URL_PIZZARELA = "https://pizzarela-api.vercel.app/api/v1";
-// const API_URL_PIZZARELA = "http://localhost:3000/api/v1";
+// const API_URL_PIZZARELA = "https://pizzarela-api.vercel.app/api/v1";
+const API_URL_PIZZARELA = "http://localhost:3000/api/v1";
 
 export async function getMenu() {
   const res = await fetch(`${API_URL}/menu`);
@@ -58,7 +58,6 @@ export async function updateOrder(id, updateObj) {
 }
 
 export async function checkoutSession(order) {
-  console.log(order);
   try {
     const res = await fetch(`${API_URL_PIZZARELA}/pizzas/checkout-session`, {
       method: "POST",
@@ -70,6 +69,27 @@ export async function checkoutSession(order) {
     console.log(data.data);
 
     return data.data.session;
+  } catch (err) {
+    throw Error(err.message);
+  }
+}
+
+export async function setVisits() {
+  try {
+    const res = await fetch(`${API_URL_PIZZARELA}/visits`, {
+      method: "POST",
+    });
+    await res.json();
+  } catch (err) {
+    throw Error(err.message);
+  }
+}
+
+export async function getVisits() {
+  try {
+    const res = await fetch(`${API_URL_PIZZARELA}/visits`);
+    const { numVisits } = await res.json();
+    return numVisits;
   } catch (err) {
     throw Error(err.message);
   }
