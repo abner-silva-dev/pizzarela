@@ -3,7 +3,7 @@ import { useScreen } from "../hooks/useScreen";
 import CreateUser from "./../features/user/CreateUser";
 import Galery from "./Galery";
 import Button from "./Button";
-import Visits from "./visits";
+import Visits from "./Visits";
 import { getVisits } from "../services/apiRestaurant";
 import { useLoaderData } from "react-router-dom";
 
