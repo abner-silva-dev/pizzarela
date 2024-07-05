@@ -48,8 +48,10 @@ function CreateOrder() {
 
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
-  const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
-  const totalPrice = totalCartPrice + priorityPrice;
+  const priorityPrice = totalCartPrice * 0.2;
+  const totalPrice = withPriority
+    ? totalCartPrice + priorityPrice
+    : totalCartPrice;
 
   if (!cart.length) return <EmptyCart />;
 
@@ -142,13 +144,8 @@ function CreateOrder() {
             onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority">
-            ¿Quieres darle prioridad a tu pedido?
-          </label>{" "}
-          <p>
-            El costo de la prioridad seria de: {formatCurrency(priorityPrice)}
-          </p>
-          <label htmlFor="priority">
-            ¿Quieres darle prioridad a tu pedido?
+            ¿Quieres darle prioridad a tu pedido?, se le cobrara un extra de:{" "}
+            {formatCurrency(priorityPrice)}
           </label>
         </div>
 

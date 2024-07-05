@@ -78,6 +78,10 @@ export async function setVisits() {
   try {
     const res = await fetch(`${API_URL_PIZZARELA}/visits`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
     });
     await res.json();
   } catch (err) {
