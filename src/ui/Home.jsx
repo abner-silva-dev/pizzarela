@@ -14,9 +14,7 @@ function Home() {
   const { screenWidth } = useScreen();
 
   return (
-    <div
-      className={`grid w-full grid-cols-[2fr_1.5fr] items-center gap-16 p-7 text-red-200 max-md:h-full max-md:grid-cols-1 max-md:bg-[url('/pizza-1.jpg')] max-md:bg-cover`}
-    >
+    <div className="grid w-full grid-cols-[2fr_1.5fr] gap-16 p-7 text-red-200  max-md:h-full max-md:grid-cols-1">
       <div
         style={{
           position: "fixed",
@@ -47,18 +45,6 @@ function Home() {
           <CreateUser />
         )}
         <Visits numVisits={numVisits} />
-        {/* <p className=" max-md:text-md text-justify text-2xl text-red-300">
-          En<b> PIZZARELA, </b>combinamos años de experiencia en la preparación
-          artesanal de pizzas con un toque de innovación, ofreciendo a nuestros
-          clientes una experiencia gastronómica única. Nos enorgullece utilizar
-          ingredientes frescos y de la más alta calidad en cada una de nuestras
-          creaciones, y nuestro equipo está comprometido con brindar un servicio
-          excepcional y una atención personalizada a cada cliente.
-        </p>
-        <p className="max-md:text-md text-2xl font-semibold uppercase tracking-widest text-red-500">
-          {" "}
-          ¡Tu orden en solo 45 minutos!
-        </p> */}
       </div>
       {screenWidth >= 768 && <Galery />}
     </div>
