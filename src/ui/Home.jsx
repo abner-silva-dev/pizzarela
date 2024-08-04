@@ -9,7 +9,7 @@ function Home() {
   const { screenWidth } = useScreen();
 
   return (
-    <div className="grid w-full grid-cols-[2fr_1.5fr] gap-16 p-7 text-red-200  max-md:h-full max-md:grid-cols-1">
+    <div className="m-[0_auto] grid w-full max-w-[130rem] grid-cols-[1fr_1fr] justify-center  gap-16  px-32 py-10	text-red-200 max-md:h-full max-md:grid-cols-1">
       <div
         style={{
           position: "fixed",
@@ -25,13 +25,20 @@ function Home() {
         }}
       ></div>
       <div className="flex h-full flex-col items-center gap-20 text-center">
-        <h1 className="tracking-wides mt-14 self-start	text-2xl  font-bold text-red-100	max-md:text-4xl md:text-6xl">
+        <h1 className="tracking-wides mt-14 self-start	text-2xl  font-bold text-gray-100	max-md:text-4xl md:text-6xl">
           <span className="max-md:text-md text-2xl font-semibold uppercase tracking-widest text-red-500">
             LA MEJOR PIZZA.
           </span>
           <br />
-          <span className="">Recién salido del horno, directo a ti.</span>
+          <span>Recién salido del horno, directo a ti.</span>
         </h1>
+        <p className="text-2xl italic leading-10 text-gray-200 shadow-md max-md:text-lg	">
+          En Pizzarela, nos enorgullecemos de ofrecer las mejores pizzas,
+          preparadas con ingredientes de la más alta calidad. Cada pizza es una
+          obra maestra, creada con pasión y dedicación para garantizar un sabor
+          excepcional en cada bocado.
+        </p>
+
         {userName ? (
           <Button to="/menu" type="primary">
             Continuar Ordenando {userName}

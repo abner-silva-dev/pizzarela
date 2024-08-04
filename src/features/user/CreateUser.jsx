@@ -19,8 +19,8 @@ function CreateUser() {
 
   return (
     <form onSubmit={handleSubmit} className="column flex-col gap-11">
-      <p className="mb-6 text-xl">
-      ¡Bienvenido! Por favor empieza diciéndonos tu nombre:
+      <p className="mb-6 text-xl italic text-red-100 max-md:text-lg ">
+        ¡Bienvenido! Por favor empieza diciéndonos tu nombre:
       </p>
 
       <div className="flex items-center justify-center gap-4 max-sm:flex-col">
