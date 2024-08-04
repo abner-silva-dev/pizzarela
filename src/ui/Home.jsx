@@ -9,7 +9,7 @@ function Home() {
   const { screenWidth } = useScreen();
 
   return (
-    <div className="m-[0_auto] grid w-full max-w-[130rem] grid-cols-[1fr_1fr] justify-center  gap-16  px-32 py-10	text-red-200 max-md:h-full max-md:grid-cols-1">
+    <div className="m-[0_auto] grid w-full max-w-[130rem] grid-cols-[1fr_1fr] justify-center  gap-16  px-32 py-10	text-red-200 max-lg:h-full max-lg:grid-cols-1 max-md:px-2 max-md:py-1">
       <div
         style={{
           position: "fixed",
@@ -47,7 +47,7 @@ function Home() {
           <CreateUser />
         )}
       </div>
-      {screenWidth >= 768 && <Galery />}
+      {screenWidth >= 1100 && <Galery />}
     </div>
   );
 }
