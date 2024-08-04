@@ -3,13 +3,8 @@ import { useScreen } from "../hooks/useScreen";
 import CreateUser from "./../features/user/CreateUser";
 import Galery from "./Galery";
 import Button from "./Button";
-import Visits from "./Visits";
-import { getVisits } from "../services/apiRestaurant";
-import { useLoaderData } from "react-router-dom";
 
 function Home() {
-  const numVisits = useLoaderData();
-
   const { userName } = useSelector((state) => state.user);
   const { screenWidth } = useScreen();
 
@@ -44,22 +39,10 @@ function Home() {
         ) : (
           <CreateUser />
         )}
-        <Visits numVisits={numVisits} />
       </div>
       {screenWidth >= 768 && <Galery />}
     </div>
   );
-}
-
-export async function loader() {
-  try {
-    const numVisits = await getVisits();
-    console.log(numVisits);
-    return numVisits || null;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
 }
 
 export default Home;
